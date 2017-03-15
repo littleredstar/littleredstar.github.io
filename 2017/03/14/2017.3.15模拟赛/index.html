@@ -4,41 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>codevs 1204 寻找子串位置 | Black_Moon&#39;s blog</title>
+    <title>2017.3.15模拟赛T1 | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="Description 给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
-Input 仅一行包含两个字符串a和b。
-Output 仅一行一个整数。
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高123456789101112">
+    <meta name="description" content="Description 求N位的由‘0’、‘1’、‘2’组成的所有前缀都满足 num2(‘2’的个数)≥num1≥num0 的字符串个数。
+Solution 很水的DP题，设f[i][j][k]表示当前i位，num1=j，num0=k时的方案数(第一维可以用滚动数组压掉)。显然f[i][j][k]=f[i-1][j][k]+f[i-1][j-1][k]+f[i-1][j][k-1]，边界特判一下就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codevs 1204 寻找子串位置">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/13/codevs 1204 寻找子串位置/index.html">
+<meta property="og:title" content="2017.3.15模拟赛T1">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/14/2017.3.15模拟赛/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="Description 给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
-Input 仅一行包含两个字符串a和b。
-Output 仅一行一个整数。
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高123456789101112">
-<meta property="og:updated_time" content="2017-03-15T10:34:04.824Z">
+<meta property="og:description" content="Description 求N位的由‘0’、‘1’、‘2’组成的所有前缀都满足 num2(‘2’的个数)≥num1≥num0 的字符串个数。
+Solution 很水的DP题，设f[i][j][k]表示当前i位，num1=j，num0=k时的方案数(第一维可以用滚动数组压掉)。显然f[i][j][k]=f[i-1][j][k]+f[i-1][j-1][k]+f[i-1][j][k-1]，边界特判一下就">
+<meta property="og:updated_time" content="2017-03-15T10:59:39.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codevs 1204 寻找子串位置">
-<meta name="twitter:description" content="Description 给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
-Input 仅一行包含两个字符串a和b。
-Output 仅一行一个整数。
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高123456789101112">
+<meta name="twitter:title" content="2017.3.15模拟赛T1">
+<meta name="twitter:description" content="Description 求N位的由‘0’、‘1’、‘2’组成的所有前缀都满足 num2(‘2’的个数)≥num1≥num0 的字符串个数。
+Solution 很水的DP题，设f[i][j][k]表示当前i位，num1=j，num0=k时的方案数(第一维可以用滚动数组压掉)。显然f[i][j][k]=f[i-1][j][k]+f[i-1][j-1][k]+f[i-1][j][k-1]，边界特判一下就">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -94,26 +79,21 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/13/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置" itemprop="url">codevs 1204 寻找子串位置</a>
+      <a href="/2017/03/14/2017.3.15模拟赛/" title="2017.3.15模拟赛T1" itemprop="url">2017.3.15模拟赛T1</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-13T11:58:27.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
+    <time datetime="2017-03-14T10:35:42.000Z" itemprop="datePublished"> 发表于 2017-03-14</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>仅一行包含两个字符串a和b。
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>仅一行一个整数。
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>abcd bc
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>2
-</code></pre><h2 id="Data-Size"><a href="#Data-Size" class="headerlink" title="Data Size "></a>Data Size </h2><pre><code>字符串的长度均不超过100
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">    	<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">    	<span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">	&#125;</div><div class="line">	j=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">		<span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">		<span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>求N位的由‘0’、‘1’、‘2’组成的所有前缀都满足 num2(‘2’的个数)≥num1≥num0 的字符串个数。
+</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>很水的DP题，设f[i][j][k]表示当前i位，num1=j，num0=k时的方案数(第一维可以用滚动数组压掉)。显然f[i][j][k]=f[i-1][j][k]+f[i-1][j-1][k]+f[i-1][j][k-1]，边界特判一下就好了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod=<span class="number">1000000007</span>;</div><div class="line"><span class="keyword">int</span> n,ans;</div><div class="line"><span class="keyword">int</span> f[<span class="number">405</span>][<span class="number">205</span>][<span class="number">135</span>];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	freopen(<span class="string">"a.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"a.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">	f[<span class="number">1</span>][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j*<span class="number">2</span>&lt;=i;j++)</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=j&amp;&amp;(i-j-k)&gt;=j;k++)&#123;</div><div class="line">		f[i][j][k]=(f[i][j][k]+f[i<span class="number">-1</span>][j][k])%mod; <span class="comment">//第i位为2的情况</span></div><div class="line">		<span class="keyword">if</span>(j&gt;<span class="number">0</span>) f[i][j][k]=(f[i][j][k]+f[i<span class="number">-1</span>][j<span class="number">-1</span>][k])%mod; <span class="comment">//第i位为1的情况</span></div><div class="line">		<span class="keyword">if</span>(k&gt;<span class="number">0</span>) f[i][j][k]=(f[i][j][k]+f[i<span class="number">-1</span>][j][k<span class="number">-1</span>])%mod; <span class="comment">//第i位为0的情况</span></div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i*<span class="number">2</span>&lt;=n;i++)</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i&amp;&amp;(n-i-j)&gt;=i;j++)</div><div class="line">		(ans+=f[n][i][j])%=mod;</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -122,7 +102,7 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/KMP/">KMP</a><a href="/tags/codevs/">codevs</a>
+  <span></span> <a href="/tags/模拟赛/">模拟赛</a>
   </div>
 
 </div>
@@ -131,7 +111,7 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/13/codevs 1204 寻找子串位置/" data-title="codevs 1204 寻找子串位置 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/14/2017.3.15模拟赛/" data-title="2017.3.15模拟赛T1 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,19 +124,11 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/13/BZOJ1355 Baltic2009 Radio Transmission/" title="BZOJ1355 [Baltic2009]Radio Transmission">
-  <strong>上一篇：</strong><br/>
-  <span>
-  BZOJ1355 [Baltic2009]Radio Transmission</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/13/Hello World!/"  title="Self Introduction!">
+<a href="/2017/03/13/BZOJ1355 Baltic2009 Radio Transmission/"  title="BZOJ1355 [Baltic2009]Radio Transmission">
  <strong>下一篇：</strong><br/> 
- <span>Self Introduction!
+ <span>BZOJ1355 [Baltic2009]Radio Transmission
 </span>
 </a>
 </div>
@@ -171,7 +143,7 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Size"><span class="toc-number">6.</span> <span class="toc-text">Data Size </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">7.</span> <span class="toc-text">Solution </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution </span></a></li></ol>
  
   </div>
 
