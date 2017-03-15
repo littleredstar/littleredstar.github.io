@@ -68,172 +68,67 @@
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/13/BZOJ1355 Baltic2009 Radio Transmission/" title="BZOJ1355 [Baltic2009]Radio Transmission" itemprop="url">BZOJ1355 [Baltic2009]Radio Transmission</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-13T12:25:42.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><pre><code>给你一个字符串，它是由某个字符串不断自我连接形成的。 但是这个字符串是不确定的，现在只想知道它的最短长度是多少。
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><pre><code>第一行给出字符串的长度,1 &lt; L ≤ 1,000,000。 第二行给出一个字符串，全由小写字母组成。
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><pre><code>输出最短的长度。
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>8
-cabcabca
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>3
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>next[n]就是长度小于n最长的border，自己画下图，应该一目了然，1~n-next[n]一定是整串的循环节，那答案就是n-next[n]。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1000005</span>;</div><div class="line"><span class="keyword">int</span> next[N],n,j;</div><div class="line"><span class="keyword">char</span> s[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%s"</span>,&amp;n,s+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">while</span> (j&amp;&amp;s[i]!=s[j+<span class="number">1</span>]) j=next[j];</div><div class="line">        <span class="keyword">if</span> (s[i]==s[j+<span class="number">1</span>]) j++; next[i]=j; </div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,n-next[n]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
   
-  <span></span> <a href="/tags/KMP/">KMP</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2017/03/13/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置" itemprop="url">codevs 1204 寻找子串位置</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-13T11:58:27.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><pre><code>给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><pre><code>仅一行包含两个字符串a和b。
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><pre><code>仅一行一个整数。
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><pre><code>abcd bc
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><pre><code>2
-</code></pre><h2 id="Data-Size"><a href="#Data-Size" class="headerlink" title="Data Size"></a>Data Size</h2><pre><code>字符串的长度均不超过100
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">    	<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">    	<span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">	&#125;</div><div class="line">	j=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">		<span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">		<span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-  <div class="article-tags">
+<section class="post" itemscope itemprop="blogitem">
   
-  <span></span> <a href="/tags/KMP/">KMP</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <a href="/2017/03/13/BZOJ1355 Baltic2009 Radio Transmission/" title="BZOJ1355 [Baltic2009]Radio Transmission" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ1355 [Baltic2009]Radio Transmission</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >Description 给你一个字符串，它是由某个字符串不断自我连接形成的。 但是这个字符串是不确定的，现在只想知道它的最短长度是多少。
+Input 第一行给出字符串的长度,1 &amp;lt; L ≤ 1,000,000。 第二行给出一个字符串，全由小写字母组成。
+Output 输出最</p>
+        
     
-      <a href="/2017/03/13/Hello World!/" title="Self Introduction!" itemprop="url">Self Introduction!</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
-		
-  <p class="article-time">
-    <time datetime="2017-03-13T11:28:24.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
+    <time datetime="2017-03-13T12:25:42.000Z" itemprop="datePublished">2017-03-13</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/03/13/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置" itemprop="url">
+  
+    <h1 itemprop="name">codevs 1204 寻找子串位置</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >Description 给出字符串a和字符串b，保证b是a的一个子串，请你输出b在a中第一次出现的位置。
+Input 仅一行包含两个字符串a和b。
+Output 仅一行一个整数。
+Sample Input abcd bc
+Sample Output 2
+Data Size 字符串</p>
         
-        <p>看人家都开了blog，我也开一个吧，总结一下学过的东西。<br>QQ：<code>839559497</code> 欢迎加我<del>互赞</del>互相交流哈。<br><del>才不告诉你这是盗罗Gay楠的啊嘎嘎</del></p>
+    
+    <time datetime="2017-03-13T11:58:27.000Z" itemprop="datePublished">2017-03-13</time>
+  </a>
+</section>
 
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/03/13/Hello World!/" title="Self Introduction!" itemprop="url">
+  
+    <h1 itemprop="name">Self Introduction!</h1>
+    
+     
+           <p itemprop="description" >看人家都开了blog，我也开一个吧，总结一下学过的东西。QQ：839559497 欢迎加我互赞互相交流哈。才不告诉你这是盗罗Gay楠的啊嘎嘎</p>
         
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
+    
+    <time datetime="2017-03-13T11:28:24.000Z" itemprop="datePublished">2017-03-13</time>
+  </a>
+</section>
 
 
 
