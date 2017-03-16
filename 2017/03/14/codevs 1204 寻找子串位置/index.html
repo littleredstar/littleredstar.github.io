@@ -4,23 +4,41 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Self Introduction! | Black_Moon&#39;s blog</title>
+    <title>codevs 1204 寻找子串位置 | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="看人家都开了blog,我也开一个吧,总结一下学过的东西.QQ:839559497 欢迎加我互赞互相交流哈.才不告诉你这是盗罗Gay楠的啊嘎嘎">
+    <meta name="description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
+Input 仅一行包含两个字符串a和b.
+Output 仅一行一个整数.
+Sample Input abcd bc
+Sample Output 2
+Data Size 字符串的长度均不超过100.
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Self Introduction!">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/13/Hello World!/index.html">
+<meta property="og:title" content="codevs 1204 寻找子串位置">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="看人家都开了blog,我也开一个吧,总结一下学过的东西.QQ:839559497 欢迎加我互赞互相交流哈.才不告诉你这是盗罗Gay楠的啊嘎嘎">
-<meta property="og:updated_time" content="2017-03-16T01:53:41.980Z">
+<meta property="og:description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
+Input 仅一行包含两个字符串a和b.
+Output 仅一行一个整数.
+Sample Input abcd bc
+Sample Output 2
+Data Size 字符串的长度均不超过100.
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
+<meta property="og:updated_time" content="2017-03-16T02:09:25.141Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Self Introduction!">
-<meta name="twitter:description" content="看人家都开了blog,我也开一个吧,总结一下学过的东西.QQ:839559497 欢迎加我互赞互相交流哈.才不告诉你这是盗罗Gay楠的啊嘎嘎">
+<meta name="twitter:title" content="codevs 1204 寻找子串位置">
+<meta name="twitter:description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
+Input 仅一行包含两个字符串a和b.
+Output 仅一行一个整数.
+Sample Input abcd bc
+Sample Output 2
+Data Size 字符串的长度均不超过100.
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -76,25 +94,36 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/13/Hello World!/" title="Self Introduction!" itemprop="url">Self Introduction!</a>
+      <a href="/2017/03/14/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置" itemprop="url">codevs 1204 寻找子串位置</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-13T11:28:24.000Z" itemprop="datePublished"> 发表于 2017-03-13</time>
+    <time datetime="2017-03-14T11:58:27.000Z" itemprop="datePublished"> 发表于 2017-03-14</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>看人家都开了blog,我也开一个吧,总结一下学过的东西.<br>QQ:<code>839559497</code> 欢迎加我<del>互赞</del>互相交流哈.<br><del>才不告诉你这是盗罗Gay楠的啊嘎嘎</del></p>
+		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
+</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>仅一行包含两个字符串a和b.
+</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>仅一行一个整数.
+</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>abcd bc
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>2
+</code></pre><h2 id="Data-Size"><a href="#Data-Size" class="headerlink" title="Data Size "></a>Data Size </h2><pre><code>字符串的长度均不超过100.
+</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">    	<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">    	<span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">	&#125;</div><div class="line">	j=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">		<span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">		<span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/KMP/">KMP</a><a href="/tags/codevs/">codevs</a>
+  </div>
 
 </div>
 
@@ -102,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/13/Hello World!/" data-title="Self Introduction! | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/" data-title="codevs 1204 寻找子串位置 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -116,13 +145,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/14/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置">
+ <a href="/2017/03/14/BZOJ1355 Baltic2009 Radio Transmission/" title="BZOJ1355 [Baltic2009]Radio Transmission">
   <strong>上一篇：</strong><br/>
   <span>
-  codevs 1204 寻找子串位置</span>
+  BZOJ1355 [Baltic2009]Radio Transmission</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2017/03/13/Hello World!/"  title="Self Introduction!">
+ <strong>下一篇：</strong><br/> 
+ <span>Self Introduction!
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -134,7 +171,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Size"><span class="toc-number">6.</span> <span class="toc-text">Data Size </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">7.</span> <span class="toc-text">Solution </span></a></li></ol>
  
   </div>
 
