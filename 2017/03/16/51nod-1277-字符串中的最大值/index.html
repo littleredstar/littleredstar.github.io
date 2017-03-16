@@ -11,31 +11,19 @@
     
 
     
-    <meta name="description" content="Description 一个字符串的前缀是指包含该字符第一个字母的连续子串,例如:abcd的所有前缀为a, ab, abc, abcd.
-给出一个字符串S,求其所有前缀中,字符长度与出现次数的乘积的最大值.
-例如:S=&amp;quot;abababa&amp;quot; 所有的前缀如下:
-
-&amp;quot;a&amp;quot;, 长度与出现次数的乘积 1 * 4 = 4,
-&amp;quot;ab&amp;quot;,长度与出现次数的乘">
+    <meta name="description" content="传送门: http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277 
+Solution KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身)border的前缀个数+1,记cnt[i]为长度为i的前缀出现次数-1,cnt可以逆推求出,所以一遍KMP之后,逆推求">
 <meta property="og:type" content="article">
 <meta property="og:title" content="51nod 1277 字符串中的最大值">
 <meta property="og:url" content="https://littleredstar.github.io/2017/03/16/51nod-1277-字符串中的最大值/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="Description 一个字符串的前缀是指包含该字符第一个字母的连续子串,例如:abcd的所有前缀为a, ab, abc, abcd.
-给出一个字符串S,求其所有前缀中,字符长度与出现次数的乘积的最大值.
-例如:S=&amp;quot;abababa&amp;quot; 所有的前缀如下:
-
-&amp;quot;a&amp;quot;, 长度与出现次数的乘积 1 * 4 = 4,
-&amp;quot;ab&amp;quot;,长度与出现次数的乘">
-<meta property="og:updated_time" content="2017-03-16T05:29:18.229Z">
+<meta property="og:description" content="传送门: http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277 
+Solution KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身)border的前缀个数+1,记cnt[i]为长度为i的前缀出现次数-1,cnt可以逆推求出,所以一遍KMP之后,逆推求">
+<meta property="og:updated_time" content="2017-03-16T07:17:20.512Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="51nod 1277 字符串中的最大值">
-<meta name="twitter:description" content="Description 一个字符串的前缀是指包含该字符第一个字母的连续子串,例如:abcd的所有前缀为a, ab, abc, abcd.
-给出一个字符串S,求其所有前缀中,字符长度与出现次数的乘积的最大值.
-例如:S=&amp;quot;abababa&amp;quot; 所有的前缀如下:
-
-&amp;quot;a&amp;quot;, 长度与出现次数的乘积 1 * 4 = 4,
-&amp;quot;ab&amp;quot;,长度与出现次数的乘">
+<meta name="twitter:description" content="传送门: http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277 
+Solution KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身)border的前缀个数+1,记cnt[i]为长度为i的前缀出现次数-1,cnt可以逆推求出,所以一遍KMP之后,逆推求">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -104,25 +92,9 @@
 </header>
 	<div class="article-content">
 		
-		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>一个字符串的前缀是指包含该字符第一个字母的连续子串,例如:abcd的所有前缀为a, ab, abc, abcd.
-给出一个字符串S,求其所有前缀中,字符长度与出现次数的乘积的最大值.
-例如:S=&quot;abababa&quot; 所有的前缀如下:
-
-&quot;a&quot;, 长度与出现次数的乘积 1 * 4 = 4,
-&quot;ab&quot;,长度与出现次数的乘积 2 * 3 = 6,
-&quot;aba&quot;, 长度与出现次数的乘积 3 * 3 = 9,
-&quot;abab&quot;, 长度与出现次数的乘积 4 * 2 = 8,
-&quot;ababa&quot;, 长度与出现次数的乘积 5 * 2 = 10,
-&quot;ababab&quot;, 长度与出现次数的乘积 6 * 1 = 6,
-&quot;abababa&quot;, 长度与出现次数的乘积 7 * 1 = 7.
-
-其中&quot;ababa&quot;出现了2次,二者的乘积为10,是所有前缀中最大的.
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>输入字符串S,(1≤L≤100000,L为字符串的长度),S中的所有字符均为小写英文字母.
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>输出所有前缀中字符长度与出现次数的乘积的最大值.
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>abababa
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>7
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身)border的前缀个数+1,记cnt[i]为长度为i的前缀出现次数-1,cnt可以逆推求出,所以一遍KMP之后,逆推求cnt,顺便求最大值就好了.<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100005</span>;</div><div class="line"><span class="keyword">int</span> next[N],cnt[N],j,n;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans;</div><div class="line"><span class="keyword">char</span> s[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">while</span> (s[i]!=s[j+<span class="number">1</span>]&amp;&amp;j) j=next[j];</div><div class="line">        <span class="keyword">if</span> (s[i]==s[j+<span class="number">1</span>]) j++;</div><div class="line">        next[i]=j; cnt[j]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=n;i;i--)&#123;</div><div class="line">        ans=max(ans,(<span class="keyword">long</span> <span class="keyword">long</span>)i*(cnt[i]+<span class="number">1</span>));</div><div class="line">        cnt[next[i]]+=cnt[i];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-  
+		<p>传送门: <a href="http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277" target="_blank" rel="external">http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身)border的前缀个数+1,记cnt[i]为长度为i的前缀出现次数-1,cnt可以逆推求出,所以一遍KMP之后,逆推求cnt,顺便求最大值就好了.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code  "></a>Code  </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100005</span>;</div><div class="line"><span class="keyword">int</span> next[N],cnt[N],j,n;</div><div class="line"><span class="keyword">long</span> <span class="keyword">long</span> ans;</div><div class="line"><span class="keyword">char</span> s[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">while</span> (s[i]!=s[j+<span class="number">1</span>]&amp;&amp;j) j=next[j];</div><div class="line">        <span class="keyword">if</span> (s[i]==s[j+<span class="number">1</span>]) j++;</div><div class="line">        next[i]=j; cnt[j]++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=n;i;i--)&#123;</div><div class="line">        ans=max(ans,(<span class="keyword">long</span> <span class="keyword">long</span>)i*(cnt[i]+<span class="number">1</span>));</div><div class="line">        cnt[next[i]]+=cnt[i];</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%lld"</span>,ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -152,6 +124,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/03/16/BZOJ3670-Noi2014-动物园/" title="BZOJ3670 [Noi2014]动物园">
+  <strong>上一篇：</strong><br/>
+  <span>
+  BZOJ3670 [Noi2014]动物园</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/03/16/BZOJ1954 Pku3764-The-xor-longest-Path/"  title="BZOJ1954 Pku3764 The xor-longest Path">
@@ -171,7 +151,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">6.</span> <span class="toc-text">Solution </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code  </span></a></li></ol>
  
   </div>
 
@@ -190,15 +170,15 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/KMP/" title="KMP">KMP<sup>3</sup></a></li>
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BZOJ/" title="BZOJ">BZOJ<sup>2</sup></a></li>
 			
 		
 			
@@ -265,8 +245,6 @@
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		
@@ -478,6 +456,35 @@ var _hmt = _hmt || [];
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

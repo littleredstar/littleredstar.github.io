@@ -11,34 +11,22 @@
     
 
     
-    <meta name="description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
-Input 仅一行包含两个字符串a和b.
-Output 仅一行一个整数.
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100.
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
+    <meta name="description" content="传送门: http://codevs.cn/problem/1204/ 
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高 
+Code1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n,m,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="codevs 1204 寻找子串位置">
 <meta property="og:url" content="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
-Input 仅一行包含两个字符串a和b.
-Output 仅一行一个整数.
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100.
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
-<meta property="og:updated_time" content="2017-03-16T02:09:25.141Z">
+<meta property="og:description" content="传送门: http://codevs.cn/problem/1204/ 
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高 
+Code1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n,m,">
+<meta property="og:updated_time" content="2017-03-16T07:17:19.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="codevs 1204 寻找子串位置">
-<meta name="twitter:description" content="Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
-Input 仅一行包含两个字符串a和b.
-Output 仅一行一个整数.
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串的长度均不超过100.
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12345678910111">
+<meta name="twitter:description" content="传送门: http://codevs.cn/problem/1204/ 
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高 
+Code1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n,m,">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -107,14 +95,9 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 </header>
 	<div class="article-content">
 		
-		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>仅一行包含两个字符串a和b.
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>仅一行一个整数.
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>abcd bc
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>2
-</code></pre><h2 id="Data-Size"><a href="#Data-Size" class="headerlink" title="Data Size "></a>Data Size </h2><pre><code>字符串的长度均不超过100.
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">    	<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">    	<span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">	&#125;</div><div class="line">	j=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">		<span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">		<span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-  
+		<p>传送门: <a href="http://codevs.cn/problem/1204/" target="_blank" rel="external">http://codevs.cn/problem/1204/</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del> </p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">    	<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">    	<span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">	&#125;</div><div class="line">	j=<span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">		<span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">		<span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -171,7 +154,7 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Size"><span class="toc-number">6.</span> <span class="toc-text">Data Size </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">7.</span> <span class="toc-text">Solution </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code</span></a></li></ol>
  
   </div>
 
@@ -190,15 +173,15 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/KMP/" title="KMP">KMP<sup>3</sup></a></li>
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BZOJ/" title="BZOJ">BZOJ<sup>2</sup></a></li>
 			
 		
 			
@@ -265,8 +248,6 @@ Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高12
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		
@@ -478,6 +459,35 @@ var _hmt = _hmt || [];
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->

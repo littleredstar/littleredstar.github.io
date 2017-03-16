@@ -71,16 +71,35 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2017/03/16/BZOJ3670-Noi2014-动物园/" title="BZOJ3670 [Noi2014]动物园" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ3670 [Noi2014]动物园</h1>
+    
+     
+           <p itemprop="description" >传送门: http://www.lydsy.com/JudgeOnline/problem.php?id=3670 
+Solution 求next数组时可以顺便求出每个前缀的border的个数,记为cnt.统计答案的时候强制使匹配长度小鱼i/2就可以了.
+Code 1234567</p>
+        
+    
+    <time datetime="2017-03-16T06:45:51.000Z" itemprop="datePublished">2017-03-16</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2017/03/16/51nod-1277-字符串中的最大值/" title="51nod 1277 字符串中的最大值" itemprop="url">
   
     <h1 itemprop="name">51nod 1277 字符串中的最大值</h1>
     
      
-           <p itemprop="description" >Description 一个字符串的前缀是指包含该字符第一个字母的连续子串,例如:abcd的所有前缀为a, ab, abc, abcd.
-给出一个字符串S,求其所有前缀中,字符长度与出现次数的乘积的最大值.
-例如:S=&amp;quot;abababa&amp;quot; 所有的前缀如下:
-
-&amp;</p>
+           <p itemprop="description" >传送门: http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1277 
+Solution KMP中next数组可以求出每个前缀最长(小于本身)的border,显然一个前缀A出现的次数就是以A为最大(小于本身</p>
         
     
     <time datetime="2017-03-16T05:01:35.000Z" itemprop="datePublished">2017-03-16</time>
@@ -100,10 +119,10 @@
     <h1 itemprop="name">BZOJ1954 Pku3764 The xor-longest Path</h1>
     
      
-           <p itemprop="description" >Description 给定一棵n个点的带权树,求树上最长的异或和路径.
+           <p itemprop="description" >Description 给定一棵n个点的带权树,求树上最长的异或和路径. 
 Input 第一行包含一个整数n(1≤n≤100000),下面的n-1行每行包含三个整数u(0≤u﹤n),v(0≤v﹤n),w(0≤w﹤n),表示节点u和v之间
 的长度为w.
-Output 输出最长异或和路</p>
+Output 输出最长异或和</p>
         
     
     <time datetime="2017-03-16T01:03:52.000Z" itemprop="datePublished">2017-03-16</time>
@@ -189,12 +208,9 @@ S</p>
     <h1 itemprop="name">codevs 1204 寻找子串位置</h1>
     
      
-           <p itemprop="description" >Description 给出字符串a和字符串b,保证b是a的一个子串,请你输出b在a中第一次出现的位置.
-Input 仅一行包含两个字符串a和b.
-Output 仅一行一个整数.
-Sample Input abcd bc
-Sample Output 2
-Data Size 字符串</p>
+           <p itemprop="description" >传送门: http://codevs.cn/problem/1204/ 
+Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高 
+Code1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;l</p>
         
     
     <time datetime="2017-03-14T11:58:27.000Z" itemprop="datePublished">2017-03-14</time>
@@ -245,15 +261,15 @@ Data Size 字符串</p>
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/KMP/" title="KMP">KMP<sup>3</sup></a></li>
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/BZOJ/" title="BZOJ">BZOJ<sup>2</sup></a></li>
 			
 		
 			
@@ -320,8 +336,6 @@ Data Size 字符串</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
 		
 		
 		
@@ -456,6 +470,35 @@ var _hmt = _hmt || [];
 
 <!-- MathJax Begin -->
 <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 
 <!-- MathJax End -->
