@@ -4,29 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>codevs 1204 寻找子串位置 | Black_Moon&#39;s blog</title>
+    <title>BZOJ3170: [Tjoi 2013]松鼠聚会 | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="传送门: http://codevs.cn/problem/1204/ 
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高  
-Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n">
+    <meta name="description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3170 
+Solution 根据题意可以分析出两点之间距离为两点x轴坐标差与y轴坐标差的最大值，即切比雪夫距离。注意到 max(a,b)=(a+b)/2+|(a-b)/2| 可推出 max(|a|,|b|)=|(a+b)/2|+|(a-b)/2| 由此可以将原坐标转化，原坐标(x=a,y=b)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="codevs 1204 寻找子串位置">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/index.html">
+<meta property="og:title" content="BZOJ3170: [Tjoi 2013]松鼠聚会">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/24/BZOJ3170-Tjoi-2013-松鼠聚会/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="传送门: http://codevs.cn/problem/1204/ 
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高  
-Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n">
-<meta property="og:updated_time" content="2017-03-17T02:33:19.069Z">
+<meta property="og:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3170 
+Solution 根据题意可以分析出两点之间距离为两点x轴坐标差与y轴坐标差的最大值，即切比雪夫距离。注意到 max(a,b)=(a+b)/2+|(a-b)/2| 可推出 max(|a|,|b|)=|(a+b)/2|+|(a-b)/2| 由此可以将原坐标转化，原坐标(x=a,y=b)">
+<meta property="og:updated_time" content="2017-03-24T06:32:53.798Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codevs 1204 寻找子串位置">
-<meta name="twitter:description" content="传送门: http://codevs.cn/problem/1204/ 
-Solution 俞斐然：这不是暴力吗？罗江楠：打KMP显得咱逼格高  
-Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;lt;cstring&amp;gt;using namespace std;char a[105],b[105];int n">
+<meta name="twitter:title" content="BZOJ3170: [Tjoi 2013]松鼠聚会">
+<meta name="twitter:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3170 
+Solution 根据题意可以分析出两点之间距离为两点x轴坐标差与y轴坐标差的最大值，即切比雪夫距离。注意到 max(a,b)=(a+b)/2+|(a-b)/2| 可推出 max(|a|,|b|)=|(a+b)/2|+|(a-b)/2| 由此可以将原坐标转化，原坐标(x=a,y=b)">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -82,22 +79,22 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/14/codevs 1204 寻找子串位置/" title="codevs 1204 寻找子串位置" itemprop="url">codevs 1204 寻找子串位置</a>
+      <a href="/2017/03/24/BZOJ3170-Tjoi-2013-松鼠聚会/" title="BZOJ3170: [Tjoi 2013]松鼠聚会" itemprop="url">BZOJ3170: [Tjoi 2013]松鼠聚会</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-14T11:58:27.000Z" itemprop="datePublished"> 发表于 2017-03-14</time>
+    <time datetime="2017-03-24T06:17:24.000Z" itemprop="datePublished"> 发表于 2017-03-24</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>传送门: <a href="http://codevs.cn/problem/1204/" target="_blank" rel="external">http://codevs.cn/problem/1204/</a> </p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p><del>俞斐然：这不是暴力吗？</del><br><del>罗江楠：打KMP显得咱逼格高</del>  </p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code  "></a>Code  </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">char</span> a[<span class="number">105</span>],b[<span class="number">105</span>];</div><div class="line"><span class="keyword">int</span> n,m,next[<span class="number">105</span>],j;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,a+<span class="number">1</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,b+<span class="number">1</span>);</div><div class="line">    n=<span class="built_in">strlen</span>(a+<span class="number">1</span>);m=<span class="built_in">strlen</span>(b+<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=m;i++)&#123;</div><div class="line">        <span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;b[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">        <span class="keyword">if</span> (b[i]==b[j+<span class="number">1</span>]) j++; next[i]=j;</div><div class="line">    &#125;</div><div class="line">    j=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">while</span> (j&gt;<span class="number">0</span>&amp;&amp;a[i]!=b[j+<span class="number">1</span>]) j=next[j];</div><div class="line">        <span class="keyword">if</span> (a[i]==b[j+<span class="number">1</span>]) j++;</div><div class="line">        <span class="keyword">if</span> (j==m)&#123;<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,i-m+<span class="number">1</span>); <span class="keyword">return</span> <span class="number">0</span>;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+		<p>传送门：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3170" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=3170</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>根据题意可以分析出两点之间距离为两点x轴坐标差与y轴坐标差的最大值，即切比雪夫距离。注意到 max(a,b)=(a+b)/2+|(a-b)/2| 可推出 max(|a|,|b|)=|(a+b)/2|+|(a-b)/2| 由此可以将原坐标转化，原坐标(x=a,y=b)转为(x=(a+b)/2,y=(a-b)/2) (为了不用double可以不除二，变为最终答案除二)。然后问题变为求曼哈顿距离最短，前缀和随便乱搞一下就好了。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100100</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">char</span> ch; ch=getchar(); ll f=<span class="number">1</span>,x=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">while</span> (ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">return</span> x*f;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span>) x=-x,<span class="built_in">putchar</span>(<span class="string">'-'</span>);</div><div class="line">    <span class="keyword">if</span> (x&gt;<span class="number">9</span>) write(x/<span class="number">10</span>); <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">    ll x,y,id;</div><div class="line">&#125;a[N];</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpx</span><span class="params">(data x,data y)</span></span>&#123;<span class="keyword">return</span> x.x&lt;y.x;&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpy</span><span class="params">(data x,data y)</span></span>&#123;<span class="keyword">return</span> x.y&lt;y.y;&#125;</div><div class="line">ll n,ans=<span class="number">1e18</span>,sumlx[N],sumrx[N],sumly[N],sumry[N];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    n=read();</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        ll x=read(),y=read(); </div><div class="line">        a[i].x=x+y;a[i].y=x-y;a[i].id=i;</div><div class="line">    &#125;</div><div class="line">    sort(a+<span class="number">1</span>,a+<span class="number">1</span>+n,cmpx);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++) </div><div class="line">        sumlx[a[i].id]=sumlx[a[i<span class="number">-1</span>].id]+(a[i].x-a[i<span class="number">-1</span>].x)*(i<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span> (ll i=n;i;i--) </div><div class="line">        sumrx[a[i].id]=sumrx[a[i+<span class="number">1</span>].id]+(a[i+<span class="number">1</span>].x-a[i].x)*(n-i);</div><div class="line">    sort(a+<span class="number">1</span>,a+<span class="number">1</span>+n,cmpy);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++) </div><div class="line">        sumly[a[i].id]=sumly[a[i<span class="number">-1</span>].id]+(a[i].y-a[i<span class="number">-1</span>].y)*(i<span class="number">-1</span>);</div><div class="line">    <span class="keyword">for</span> (ll i=n;i;i--) </div><div class="line">        sumry[a[i].id]=sumry[a[i+<span class="number">1</span>].id]+(a[i+<span class="number">1</span>].y-a[i].y)*(n-i);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        ans=min(ans,sumlx[i]+sumrx[i]+sumly[i]+sumry[i]);</div><div class="line">    write(ans/<span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -105,7 +102,7 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/KMP/">KMP</a><a href="/tags/codevs/">codevs</a>
+  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/计算几何/">计算几何</a>
   </div>
 
 </div>
@@ -114,7 +111,7 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/" data-title="codevs 1204 寻找子串位置 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/24/BZOJ3170-Tjoi-2013-松鼠聚会/" data-title="BZOJ3170: [Tjoi 2013]松鼠聚会 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -127,19 +124,11 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/14/BZOJ1355-Baltic2009 Radio Transmission/" title="BZOJ1355 [Baltic2009]Radio Transmission">
-  <strong>上一篇：</strong><br/>
-  <span>
-  BZOJ1355 [Baltic2009]Radio Transmission</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/13/Hello World!/"  title="Self Introduction!">
+<a href="/2017/03/24/BZOJ2600-Ioi2011-ricehub/"  title="BZOJ2600: [Ioi2011]ricehub">
  <strong>下一篇：</strong><br/> 
- <span>Self Introduction!
+ <span>BZOJ2600: [Ioi2011]ricehub
 </span>
 </a>
 </div>
@@ -148,7 +137,7 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/14/codevs 1204 寻找子串位置/" data-title="codevs 1204 寻找子串位置" data-url="https://littleredstar.github.io/2017/03/14/codevs 1204 寻找子串位置/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/24/BZOJ3170-Tjoi-2013-松鼠聚会/" data-title="BZOJ3170: [Tjoi 2013]松鼠聚会" data-url="https://littleredstar.github.io/2017/03/24/BZOJ3170-Tjoi-2013-松鼠聚会/"></div>
 </section>
 
 
@@ -158,7 +147,7 @@ Code  1234567891011121314151617181920#include&amp;lt;cstdio&amp;gt;#include&amp;
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code  </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li></ol>
  
   </div>
 
