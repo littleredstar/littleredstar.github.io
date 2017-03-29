@@ -4,38 +4,50 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>BZOJ3524/2223: [Poi2014]Couriers | Black_Moon&#39;s blog</title>
+    <title>BZOJ3632: 外太空旅行 | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="Description 给一个长度为n的序列a。1≤a[i]≤n。m组询问，每次询问一个区间[l,r]，是否存在一个数在[l,r]中出现的次数大于(r-l+1)/2。
-如果存在，输出这个数，否则输出0。
-Input 第一行两个数n，m。第二行n个数，a[i]。接下来m行，每行两个数l,r，表示询问[l,r]这个区间。
-Output m行，每行对应一个答案。
-Sample Input 7 5
-1 1">
+    <meta name="description" content="Description 大意：求最大团。 
+Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
+Output 一行，最大团点的数目。 
+Sample Input 4
+1 2
+2 3
+3 1
+1 4
+Sample Output 3
+Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BZOJ3524/2223: [Poi2014]Couriers">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/20/BZOJ3524-2223-Poi2014-Couriers/index.html">
+<meta property="og:title" content="BZOJ3632: 外太空旅行">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="Description 给一个长度为n的序列a。1≤a[i]≤n。m组询问，每次询问一个区间[l,r]，是否存在一个数在[l,r]中出现的次数大于(r-l+1)/2。
-如果存在，输出这个数，否则输出0。
-Input 第一行两个数n，m。第二行n个数，a[i]。接下来m行，每行两个数l,r，表示询问[l,r]这个区间。
-Output m行，每行对应一个答案。
-Sample Input 7 5
-1 1">
-<meta property="og:updated_time" content="2017-03-28T07:06:32.773Z">
+<meta property="og:description" content="Description 大意：求最大团。 
+Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
+Output 一行，最大团点的数目。 
+Sample Input 4
+1 2
+2 3
+3 1
+1 4
+Sample Output 3
+Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
+<meta property="og:updated_time" content="2017-03-29T02:15:22.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BZOJ3524/2223: [Poi2014]Couriers">
-<meta name="twitter:description" content="Description 给一个长度为n的序列a。1≤a[i]≤n。m组询问，每次询问一个区间[l,r]，是否存在一个数在[l,r]中出现的次数大于(r-l+1)/2。
-如果存在，输出这个数，否则输出0。
-Input 第一行两个数n，m。第二行n个数，a[i]。接下来m行，每行两个数l,r，表示询问[l,r]这个区间。
-Output m行，每行对应一个答案。
-Sample Input 7 5
-1 1">
+<meta name="twitter:title" content="BZOJ3632: 外太空旅行">
+<meta name="twitter:description" content="Description 大意：求最大团。 
+Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
+Output 一行，最大团点的数目。 
+Sample Input 4
+1 2
+2 3
+3 1
+1 4
+Sample Output 3
+Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -91,39 +103,30 @@ Sample Input 7 5
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/20/BZOJ3524-2223-Poi2014-Couriers/" title="BZOJ3524/2223: [Poi2014]Couriers" itemprop="url">BZOJ3524/2223: [Poi2014]Couriers</a>
+      <a href="/2017/03/29/BZOJ3632-外太空旅行/" title="BZOJ3632: 外太空旅行" itemprop="url">BZOJ3632: 外太空旅行</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-20T02:27:29.000Z" itemprop="datePublished"> 发表于 2017-03-20</time>
+    <time datetime="2017-03-29T01:11:20.000Z" itemprop="datePublished"> 发表于 2017-03-29</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>给一个长度为n的序列a。1≤a[i]≤n。m组询问，每次询问一个区间[l,r]，是否存在一个数在[l,r]中出现的次数大于(r-l+1)/2。
-如果存在，输出这个数，否则输出0。
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>第一行两个数n，m。第二行n个数，a[i]。接下来m行，每行两个数l,r，表示询问[l,r]这个区间。
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>m行，每行对应一个答案。
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>7 5
-1 1 3 2 3 4 3
-1 3
+		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>大意：求最大团。 
+</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>第一行n表示点数，后面若干行每行u，v表示u，v连边
+</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>一行，最大团点的数目。 
+</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>4
+1 2
+2 3
+3 1
 1 4
-3 7
-1 7
-6 6
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>1
-0
-3
-0
-4
-</code></pre><h2 id="Hint"><a href="#Hint" class="headerlink" title="Hint "></a>Hint </h2><pre><code>[数据范围]
-n,m≤500000
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>第一次打主席树模板.好像就是把线段树的儿子连来连去.建n棵线段树,记录每个数出现次数,区间出现次数就像前缀和减一下就可以求出然后二分一下答案就好了.复杂度O(n log n).</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code "></a>Code </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">500005</span>;</div><div class="line"><span class="keyword">int</span> n,m,x,y,size;</div><div class="line"><span class="keyword">int</span> root[N],left[N*<span class="number">20</span>],right[N*<span class="number">20</span>],sum[N*<span class="number">20</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> v,<span class="keyword">int</span> x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</div><div class="line">	y=++size;</div><div class="line">	sum[y]=sum[x]+<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (l==r) <span class="keyword">return</span>;</div><div class="line">	left[y]=left[x]; right[y]=right[x];</div><div class="line">	<span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">if</span> (v&lt;=mid) add(l,mid,v,left[x],left[y]);</div><div class="line">	<span class="keyword">else</span> add(mid+<span class="number">1</span>,r,v,right[x],right[y]);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span></span>&#123;</div><div class="line">	<span class="keyword">int</span> l=<span class="number">1</span>,r=n,x=root[L<span class="number">-1</span>],y=root[R],num=R-L+<span class="number">1</span>&gt;&gt;<span class="number">1</span>;</div><div class="line">	<span class="keyword">while</span> (l&lt;r)&#123;</div><div class="line">		<span class="keyword">if</span> (sum[y]-sum[x]&lt;=num) <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">		<span class="keyword">int</span> mid=l+r&gt;&gt;<span class="number">1</span>;</div><div class="line">		<span class="keyword">if</span> (sum[left[y]]-sum[left[x]]&gt;num)&#123;</div><div class="line">			r=mid; x=left[x]; y=left[y];</div><div class="line">		&#125;<span class="keyword">else</span></div><div class="line">		<span class="keyword">if</span> (sum[right[y]]-sum[right[x]]&gt;num)&#123;</div><div class="line">			l=mid+<span class="number">1</span>; x=right[x]; y=right[y];</div><div class="line">		&#125;<span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> l;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">	<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;x);</div><div class="line">		add(<span class="number">1</span>,n,x,root[i<span class="number">-1</span>],root[i]);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</div><div class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;x,&amp;y);</div><div class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,query(x,y));</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>3
+</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>蒙特卡罗大法好。。另外dfs就：<a href="http://blog.csdn.net/popoqqq/article/details/44623165" target="_blank" rel="external">http://blog.csdn.net/popoqqq/article/details/44623165</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll int</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 51</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll f[N][N],a[N],vis[N],n,u,v,t,ans;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</div><div class="line">    t=<span class="number">0</span>; <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        <span class="keyword">if</span> (!vis[i])&#123;</div><div class="line">            t++;</div><div class="line">            <span class="keyword">for</span> (ll j=i+<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">                <span class="keyword">if</span> (!f[a[i]][a[j]]) vis[j]=<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    ans=max(ans,t);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v))</div><div class="line">        f[u][v]=f[v][u]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++) a[i]=i;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=N;i++)&#123;</div><div class="line">        <span class="keyword">for</span> (ll j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">            swap(a[j],a[rand()%n+<span class="number">1</span>]);</div><div class="line">        work();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -131,7 +134,7 @@ n,m≤500000
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/主席树/">主席树</a>
+  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/搜索/">搜索</a>
   </div>
 
 </div>
@@ -140,7 +143,7 @@ n,m≤500000
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/20/BZOJ3524-2223-Poi2014-Couriers/" data-title="BZOJ3524/2223: [Poi2014]Couriers | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/" data-title="BZOJ3632: 外太空旅行 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -153,19 +156,11 @@ n,m≤500000
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/24/BZOJ2600-Ioi2011-ricehub/" title="BZOJ2600: [Ioi2011]ricehub">
-  <strong>上一篇：</strong><br/>
-  <span>
-  BZOJ2600: [Ioi2011]ricehub</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/17/BZOJ1212-HNOI2004-L语言/"  title="BZOJ1212: [HNOI2004]L语言">
+<a href="/2017/03/28/BZOJ3041-水叮当的舞步/"  title="BZOJ3041: 水叮当的舞步">
  <strong>下一篇：</strong><br/> 
- <span>BZOJ1212: [HNOI2004]L语言
+ <span>BZOJ3041: 水叮当的舞步
 </span>
 </a>
 </div>
@@ -174,7 +169,7 @@ n,m≤500000
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/20/BZOJ3524-2223-Poi2014-Couriers/" data-title="BZOJ3524/2223: [Poi2014]Couriers" data-url="https://littleredstar.github.io/2017/03/20/BZOJ3524-2223-Poi2014-Couriers/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/29/BZOJ3632-外太空旅行/" data-title="BZOJ3632: 外太空旅行" data-url="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/"></div>
 </section>
 
 
@@ -184,7 +179,7 @@ n,m≤500000
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hint"><span class="toc-number">6.</span> <span class="toc-text">Hint </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">7.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">8.</span> <span class="toc-text">Code </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">6.</span> <span class="toc-text">Solution </span></a></li></ol>
  
   </div>
 
