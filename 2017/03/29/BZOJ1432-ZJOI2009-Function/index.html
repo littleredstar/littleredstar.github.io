@@ -4,26 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>BZOJ3990: [SDOI2015]排序 | Black_Moon&#39;s blog</title>
+    <title>BZOJ1432: [ZJOI2009]Function | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3990 
-Solution 首先可以发现如果找到一种方案S可行，则S的全排列也可行。因此可以从小到大选每段长度，每次找不是连续上升的段：    如果没有这样的段，则无需操作    若有一段，则交换该段的前半部分和后半部分判断，继续往下搜    若有两段，则分四种交换情况讨论，和一段的情况类似">
+    <meta name="description" content="传送门:http://www.lydsy.com/JudgeOnline/problem.php?id=1432 
+Solution 结论题,看一下图这样是最优情况。自己拿笔描一下很容易发现从上往下每层多一个点,而每个点连出去两段,所以答案为k*2。又发现，我们可以把图上下翻转一下，和原图上下对称，此时的答案为(n-k+1)×2，两种情况取最小值就可以了。特别的，当n=1时答案为1。
+Code 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BZOJ3990: [SDOI2015]排序">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/28/BZOJ3990-SDOI2015-排序/index.html">
+<meta property="og:title" content="BZOJ1432: [ZJOI2009]Function">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/29/BZOJ1432-ZJOI2009-Function/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3990 
-Solution 首先可以发现如果找到一种方案S可行，则S的全排列也可行。因此可以从小到大选每段长度，每次找不是连续上升的段：    如果没有这样的段，则无需操作    若有一段，则交换该段的前半部分和后半部分判断，继续往下搜    若有两段，则分四种交换情况讨论，和一段的情况类似">
-<meta property="og:updated_time" content="2017-03-28T03:49:09.761Z">
+<meta property="og:description" content="传送门:http://www.lydsy.com/JudgeOnline/problem.php?id=1432 
+Solution 结论题,看一下图这样是最优情况。自己拿笔描一下很容易发现从上往下每层多一个点,而每个点连出去两段,所以答案为k*2。又发现，我们可以把图上下翻转一下，和原图上下对称，此时的答案为(n-k+1)×2，两种情况取最小值就可以了。特别的，当n=1时答案为1。
+Code 1">
+<meta property="og:image" content="https://littleredstar.github.io/img/BZOJ1432.png">
+<meta property="og:updated_time" content="2017-03-29T23:31:27.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BZOJ3990: [SDOI2015]排序">
-<meta name="twitter:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3990 
-Solution 首先可以发现如果找到一种方案S可行，则S的全排列也可行。因此可以从小到大选每段长度，每次找不是连续上升的段：    如果没有这样的段，则无需操作    若有一段，则交换该段的前半部分和后半部分判断，继续往下搜    若有两段，则分四种交换情况讨论，和一段的情况类似">
+<meta name="twitter:title" content="BZOJ1432: [ZJOI2009]Function">
+<meta name="twitter:description" content="传送门:http://www.lydsy.com/JudgeOnline/problem.php?id=1432 
+Solution 结论题,看一下图这样是最优情况。自己拿笔描一下很容易发现从上往下每层多一个点,而每个点连出去两段,所以答案为k*2。又发现，我们可以把图上下翻转一下，和原图上下对称，此时的答案为(n-k+1)×2，两种情况取最小值就可以了。特别的，当n=1时答案为1。
+Code 1">
+<meta name="twitter:image" content="https://littleredstar.github.io/img/BZOJ1432.png">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -79,89 +84,22 @@ Solution 首先可以发现如果找到一种方案S可行，则S的全排列也
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/28/BZOJ3990-SDOI2015-排序/" title="BZOJ3990: [SDOI2015]排序" itemprop="url">BZOJ3990: [SDOI2015]排序</a>
+      <a href="/2017/03/29/BZOJ1432-ZJOI2009-Function/" title="BZOJ1432: [ZJOI2009]Function" itemprop="url">BZOJ1432: [ZJOI2009]Function</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-28T03:27:54.000Z" itemprop="datePublished"> 发表于 2017-03-28</time>
+    <time datetime="2017-03-29T10:34:36.000Z" itemprop="datePublished"> 发表于 2017-03-29</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>传送门：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=3990" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=3990</a> </p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>首先可以发现如果找到一种方案S可行，则S的全排列也可行。因此可以从小到大选每段长度，<br>每次找不是连续上升的段：<br>    如果没有这样的段，则无需操作<br>    若有一段，则交换该段的前半部分和后半部分判断，继续往下搜<br>    若有两段，则分四种交换情况讨论，和一段的情况类似<br>    如果这样的段大于两段，则显然不可行；<br>每次找到可行解则累加阶乘。</p>
-<pre><code class="cpp"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span>
-<span class="meta">#<span class="meta-keyword">define</span> N 20</span>
-<span class="meta">#<span class="meta-keyword">define</span> ll int</span>
-<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
-<span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>{
-    <span class="keyword">char</span> ch; ch=getchar(); ll x=<span class="number">0</span>,f=<span class="number">1</span>;
-    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>){<span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar();}
-    <span class="keyword">while</span> (ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>){x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>; ch=getchar();}
-    <span class="keyword">return</span> x*f;
-}
-<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write_</span><span class="params">(ll x)</span></span>{
-    <span class="keyword">if</span> (x&lt;<span class="number">0</span>) x=-x,<span class="built_in">putchar</span>(<span class="string">'-'</span>);
-    <span class="keyword">if</span> (x&gt;<span class="number">9</span>) write_(x/<span class="number">10</span>); <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);
-}
-<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span>{write_(x); <span class="built_in">putchar</span>(<span class="string">' '</span>);}
-<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">writeln</span><span class="params">(ll x)</span></span>{write_(x); <span class="built_in">putchar</span>(<span class="string">'\n'</span>);}
-ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
-<span class="function">ll <span class="title">check</span><span class="params">(ll x,ll k)</span></span>{
-    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;bin[k];i++)
-        <span class="keyword">if</span> (a[x+i]!=a[x+i<span class="number">-1</span>]+<span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;
-    <span class="keyword">return</span> <span class="number">1</span>;
-}
-<span class="function"><span class="keyword">void</span> <span class="title">Swap</span><span class="params">(ll x,ll y,ll k)</span></span>{
-    <span class="keyword">for</span> (ll i=<span class="number">0</span>;i&lt;k;i++)
-        swap(a[x+i],a[y+i]);
-}
-<span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(ll k,ll now)</span></span>{
-    <span class="keyword">if</span> (k==n+<span class="number">1</span>){
-        ans+=fac[now];
-        <span class="keyword">return</span>;
-    }
-    ll t1=<span class="number">0</span>,t2=<span class="number">0</span>;
-    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=bin[n];i+=bin[k])
-        <span class="keyword">if</span> (!check(i,k)){
-            <span class="keyword">if</span> (!t1) t1=i;
-            <span class="keyword">else</span> <span class="keyword">if</span> (!t2) t2=i;
-            <span class="keyword">else</span> <span class="keyword">return</span>;
-        }
-    <span class="keyword">if</span> (!t1&amp;&amp;!t2) dfs(k+<span class="number">1</span>,now);
-    <span class="keyword">else</span> <span class="keyword">if</span> (!t2){
-        Swap(t1,t1+bin[k<span class="number">-1</span>],bin[k<span class="number">-1</span>]);
-        dfs(k+<span class="number">1</span>,now+<span class="number">1</span>);
-        Swap(t1,t1+bin[k<span class="number">-1</span>],bin[k<span class="number">-1</span>]);
-    }<span class="keyword">else</span>{
-        <span class="keyword">for</span> (ll x=<span class="number">0</span>;x&lt;=<span class="number">1</span>;x++)
-        <span class="keyword">for</span> (ll y=<span class="number">0</span>;y&lt;=<span class="number">1</span>;y++){
-            Swap(t1+x*bin[k<span class="number">-1</span>],t2+y*bin[k<span class="number">-1</span>],bin[k<span class="number">-1</span>]);
-            <span class="keyword">if</span> (check(t1,k)&amp;&amp;check(t2,k)){
-                dfs(k+<span class="number">1</span>,now+<span class="number">1</span>);
-                Swap(t1+x*bin[k<span class="number">-1</span>],t2+y*bin[k<span class="number">-1</span>],bin[k<span class="number">-1</span>]);
-                <span class="keyword">break</span>;
-            }
-            Swap(t1+x*bin[k<span class="number">-1</span>],t2+y*bin[k<span class="number">-1</span>],bin[k<span class="number">-1</span>]);
-        }
-    }
-}
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
-    fac[<span class="number">0</span>]=bin[<span class="number">0</span>]=<span class="number">1</span>; n=read();
-    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=<span class="number">14</span>;i++) fac[i]=fac[i<span class="number">-1</span>]*i;
-    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=<span class="number">14</span>;i++) bin[i]=bin[i<span class="number">-1</span>]&lt;&lt;<span class="number">1</span>;
-    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=bin[n];i++) a[i]=read();
-    dfs(<span class="number">1</span>,<span class="number">0</span>);
-    writeln(ans);
-}
-</code></pre>
-  
+		<p>传送门:<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1432" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=1432</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>结论题,看一下图<br><img src="/img/BZOJ1432.png"><br>这样是最优情况。<br>自己拿笔描一下很容易发现从上往下每层多一个点,而每个点连出去两段,所以答案为k*2。又发现，我们可以把图上下翻转一下，和原图上下对称，此时的答案为(n-k+1)×2，两种情况取最小值就可以了。<br>特别的，当n=1时答案为1。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code "></a>Code </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> n,k;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,n==<span class="number">1</span>?<span class="number">1</span>:min(k,n-k+<span class="number">1</span>)*<span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -169,7 +107,7 @@ ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/搜索/">搜索</a>
+  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/数学/">数学</a>
   </div>
 
 </div>
@@ -178,7 +116,7 @@ ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/28/BZOJ3990-SDOI2015-排序/" data-title="BZOJ3990: [SDOI2015]排序 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/29/BZOJ1432-ZJOI2009-Function/" data-title="BZOJ1432: [ZJOI2009]Function | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -192,18 +130,18 @@ ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/03/28/BZOJ2824-AHOI2012-铁盘整理/" title="BZOJ2824: [AHOI2012]铁盘整理">
+ <a href="/2017/03/29/BZOJ1007-HNOI2008-水平可见直线/" title="BZOJ1007: [HNOI2008]水平可见直线">
   <strong>上一篇：</strong><br/>
   <span>
-  BZOJ2824: [AHOI2012]铁盘整理</span>
+  BZOJ1007: [HNOI2008]水平可见直线</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/03/27/BZOJ3505-Cqoi2014-数三角形/"  title="BZOJ3505: [Cqoi2014]数三角形">
+<a href="/2017/03/29/BZOJ2875-Noi2012-随机数生成器/"  title="BZOJ2875: [Noi2012]随机数生成器">
  <strong>下一篇：</strong><br/> 
- <span>BZOJ3505: [Cqoi2014]数三角形
+ <span>BZOJ2875: [Noi2012]随机数生成器
 </span>
 </a>
 </div>
@@ -212,7 +150,7 @@ ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/28/BZOJ3990-SDOI2015-排序/" data-title="BZOJ3990: [SDOI2015]排序" data-url="https://littleredstar.github.io/2017/03/28/BZOJ3990-SDOI2015-排序/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/29/BZOJ1432-ZJOI2009-Function/" data-title="BZOJ1432: [ZJOI2009]Function" data-url="https://littleredstar.github.io/2017/03/29/BZOJ1432-ZJOI2009-Function/"></div>
 </section>
 
 
@@ -222,7 +160,7 @@ ll a[<span class="number">5000</span>],n,fac[N],bin[N],ans;
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code </span></a></li></ol>
  
   </div>
 
