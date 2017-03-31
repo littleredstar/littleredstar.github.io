@@ -4,50 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>BZOJ3632: 外太空旅行 | Black_Moon&#39;s blog</title>
+    <title>BZOJ1029: [JSOI2007]建筑抢修 | Black_Moon&#39;s blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Black_Moon">
     
 
     
-    <meta name="description" content="Description 大意：求最大团。 
-Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
-Output 一行，最大团点的数目。 
-Sample Input 4
-1 2
-2 3
-3 1
-1 4
-Sample Output 3
-Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
+    <meta name="description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1029 
+Solution 考虑贪心，先按照T2排序，消除时间影响，再依次选T1。这样显然有问题注意到是因为T2小T1大的浪费时间，可以用一个大根堆维护已选的T1，每次加入建筑，若可行，将T1加入堆，答案加一；若不可行，比较T1和栈顶，若T1小于堆顶，则舍去堆顶，选择当前建筑，否则跳过。
+Co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BZOJ3632: 外太空旅行">
-<meta property="og:url" content="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/index.html">
+<meta property="og:title" content="BZOJ1029: [JSOI2007]建筑抢修">
+<meta property="og:url" content="https://littleredstar.github.io/2017/03/31/BZOJ1029-JSOI2007-建筑抢修/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
-<meta property="og:description" content="Description 大意：求最大团。 
-Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
-Output 一行，最大团点的数目。 
-Sample Input 4
-1 2
-2 3
-3 1
-1 4
-Sample Output 3
-Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
-<meta property="og:updated_time" content="2017-03-29T02:15:22.625Z">
+<meta property="og:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1029 
+Solution 考虑贪心，先按照T2排序，消除时间影响，再依次选T1。这样显然有问题注意到是因为T2小T1大的浪费时间，可以用一个大根堆维护已选的T1，每次加入建筑，若可行，将T1加入堆，答案加一；若不可行，比较T1和栈顶，若T1小于堆顶，则舍去堆顶，选择当前建筑，否则跳过。
+Co">
+<meta property="og:updated_time" content="2017-03-31T07:20:30.836Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="BZOJ3632: 外太空旅行">
-<meta name="twitter:description" content="Description 大意：求最大团。 
-Input 第一行n表示点数，后面若干行每行u，v表示u，v连边
-Output 一行，最大团点的数目。 
-Sample Input 4
-1 2
-2 3
-3 1
-1 4
-Sample Output 3
-Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/article/details/44623165">
+<meta name="twitter:title" content="BZOJ1029: [JSOI2007]建筑抢修">
+<meta name="twitter:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1029 
+Solution 考虑贪心，先按照T2排序，消除时间影响，再依次选T1。这样显然有问题注意到是因为T2小T1大的浪费时间，可以用一个大根堆维护已选的T1，每次加入建筑，若可行，将T1加入堆，答案加一；若不可行，比较T1和栈顶，若T1小于堆顶，则舍去堆顶，选择当前建筑，否则跳过。
+Co">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -103,30 +82,22 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/29/BZOJ3632-外太空旅行/" title="BZOJ3632: 外太空旅行" itemprop="url">BZOJ3632: 外太空旅行</a>
+      <a href="/2017/03/31/BZOJ1029-JSOI2007-建筑抢修/" title="BZOJ1029: [JSOI2007]建筑抢修" itemprop="url">BZOJ1029: [JSOI2007]建筑抢修</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-29T01:11:20.000Z" itemprop="datePublished"> 发表于 2017-03-29</time>
+    <time datetime="2017-03-31T07:04:59.000Z" itemprop="datePublished"> 发表于 2017-03-31</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<h2 id="Description"><a href="#Description" class="headerlink" title="Description "></a>Description </h2><pre><code>大意：求最大团。 
-</code></pre><h2 id="Input"><a href="#Input" class="headerlink" title="Input "></a>Input </h2><pre><code>第一行n表示点数，后面若干行每行u，v表示u，v连边
-</code></pre><h2 id="Output"><a href="#Output" class="headerlink" title="Output "></a>Output </h2><pre><code>一行，最大团点的数目。 
-</code></pre><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input "></a>Sample Input </h2><pre><code>4
-1 2
-2 3
-3 1
-1 4
-</code></pre><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output "></a>Sample Output </h2><pre><code>3
-</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>蒙特卡罗大法好。。另外dfs就：<a href="http://blog.csdn.net/popoqqq/article/details/44623165" target="_blank" rel="external">http://blog.csdn.net/popoqqq/article/details/44623165</a><br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll int</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 51</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">ll f[N][N],a[N],vis[N],n,u,v,t,ans;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span></span>&#123;</div><div class="line">    t=<span class="number">0</span>; <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span> vis);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        <span class="keyword">if</span> (!vis[i])&#123;</div><div class="line">            t++;</div><div class="line">            <span class="keyword">for</span> (ll j=i+<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">                <span class="keyword">if</span> (!f[a[i]][a[j]]) vis[j]=<span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line">    ans=max(ans,t);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</div><div class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;u,&amp;v))</div><div class="line">        f[u][v]=f[v][u]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++) a[i]=i;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=N;i++)&#123;</div><div class="line">        <span class="keyword">for</span> (ll j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">            swap(a[j],a[rand()%n+<span class="number">1</span>]);</div><div class="line">        work();</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-  
+		<p>传送门：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=1029" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=1029</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>考虑贪心，先按照T2排序，消除时间影响，再依次选T1。<br>这样显然有问题<br>注意到是因为T2小T1大的浪费时间，可以用一个大根堆维护已选的T1，每次加入建筑，<br>若可行，将T1加入堆，答案加一；<br>若不可行，比较T1和栈顶，若T1小于堆顶，则舍去堆顶，选择当前建筑，否则跳过。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code "></a>Code </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll int</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 150010</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">char</span> ch=getchar(); ll x=<span class="number">0</span>,f=<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">while</span> (ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">return</span> x*f;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">(ll x)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (x&lt;<span class="number">0</span>) x=-x,<span class="built_in">putchar</span>(<span class="string">'-'</span>);</div><div class="line">    <span class="keyword">if</span> (x&gt;<span class="number">9</span>) write(x/<span class="number">10</span>); <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">'0'</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">struct</span> heap&#123;</div><div class="line">    ll v[N],size;</div><div class="line">    <span class="function">ll <span class="title">empty</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> !size;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">up</span><span class="params">(ll x)</span></span>&#123;<span class="keyword">for</span> (;x&gt;<span class="number">1</span>&amp;&amp;v[x&gt;&gt;<span class="number">1</span>]&lt;v[x];x&gt;&gt;=<span class="number">1</span>) swap(v[x],v[x&gt;&gt;<span class="number">1</span>]);&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(ll x)</span></span>&#123;v[++size]=x; up(size);&#125;</div><div class="line">    <span class="function">ll <span class="title">top</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> v[<span class="number">1</span>];&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">down</span><span class="params">(ll fa)</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (ll son=fa;;fa=son)&#123;</div><div class="line">            <span class="keyword">if</span> ((fa&lt;&lt;<span class="number">1</span>)&lt;=size&amp;&amp;v[fa&lt;&lt;<span class="number">1</span>]&gt;v[son]) son=fa&lt;&lt;<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> ((fa&lt;&lt;<span class="number">1</span>|<span class="number">1</span>)&lt;=size&amp;&amp;v[fa&lt;&lt;<span class="number">1</span>|<span class="number">1</span>]&gt;v[son]) son=fa&lt;&lt;<span class="number">1</span>|<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (son==fa) <span class="keyword">return</span>; swap(v[fa],v[son]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span></span>&#123;swap(v[<span class="number">1</span>],v[size--]); down(<span class="number">1</span>);&#125;</div><div class="line">&#125;Q;</div><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">    ll T1,T2;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">friend</span> <span class="keyword">operator</span> &lt;(data x,data y)&#123;<span class="keyword">return</span> x.T2&lt;y.T2;&#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">friend</span> <span class="keyword">operator</span> &gt;(data x,data y)&#123;<span class="keyword">return</span> x.T2&gt;y.T2;&#125;</div><div class="line">&#125;a[N];</div><div class="line">ll n,now,ans;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    n=read();</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        a[i].T1=read(),a[i].T2=read();</div><div class="line">    sort(a+<span class="number">1</span>,a+<span class="number">1</span>+n);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="keyword">if</span> (now+a[i].T1&lt;=a[i].T2)&#123;</div><div class="line">            ans++;</div><div class="line">            now+=a[i].T1;</div><div class="line">            Q.push(a[i].T1);</div><div class="line">        &#125;<span class="keyword">else</span></div><div class="line">        <span class="keyword">if</span> (!Q.empty()&amp;&amp;Q.top()&gt;a[i].T1)&#123;</div><div class="line">            now-=Q.top()-a[i].T1;</div><div class="line">            Q.pop(); Q.push(a[i].T1);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    write(ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -134,7 +105,7 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/搜索/">搜索</a>
+  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/二叉堆/">二叉堆</a>
   </div>
 
 </div>
@@ -143,7 +114,7 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/" data-title="BZOJ3632: 外太空旅行 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://littleredstar.github.io/2017/03/31/BZOJ1029-JSOI2007-建筑抢修/" data-title="BZOJ1029: [JSOI2007]建筑抢修 | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -156,19 +127,11 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/29/BZOJ2875-Noi2012-随机数生成器/" title="BZOJ2875: [Noi2012]随机数生成器">
-  <strong>上一篇：</strong><br/>
-  <span>
-  BZOJ2875: [Noi2012]随机数生成器</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/28/BZOJ3041-水叮当的舞步/"  title="BZOJ3041: 水叮当的舞步">
+<a href="/2017/03/29/BZOJ1007-HNOI2008-水平可见直线/"  title="BZOJ1007: [HNOI2008]水平可见直线">
  <strong>下一篇：</strong><br/> 
- <span>BZOJ3041: 水叮当的舞步
+ <span>BZOJ1007: [HNOI2008]水平可见直线
 </span>
 </a>
 </div>
@@ -177,7 +140,7 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/29/BZOJ3632-外太空旅行/" data-title="BZOJ3632: 外太空旅行" data-url="https://littleredstar.github.io/2017/03/29/BZOJ3632-外太空旅行/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/31/BZOJ1029-JSOI2007-建筑抢修/" data-title="BZOJ1029: [JSOI2007]建筑抢修" data-url="https://littleredstar.github.io/2017/03/31/BZOJ1029-JSOI2007-建筑抢修/"></div>
 </section>
 
 
@@ -187,7 +150,7 @@ Solution 蒙特卡罗大法好。。另外dfs就：http://blog.csdn.net/popoqqq/
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">2.</span> <span class="toc-text">Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">3.</span> <span class="toc-text">Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">4.</span> <span class="toc-text">Sample Input </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">5.</span> <span class="toc-text">Sample Output </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">6.</span> <span class="toc-text">Solution </span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code </span></a></li></ol>
  
   </div>
 
