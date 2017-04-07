@@ -1,0 +1,561 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>BZOJ2752: [HAOI2012]高速公路(road) | Black_Moon&#39;s blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Black_Moon">
+    
+
+    
+    <meta name="description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2752 
+Solution 期望费用=总费用/总方案数。刚开始发现最后一个收费站是没用的，所以后面操作前r-1。很明显总方案数是(r-l+2)×(r-l+1)/2。分析单个收费站，发现他对总费用的贡献=经过该点的路径条数即：v[i]×(i-l+1)×(r-i+1)然后就用线段树维护但是直接写你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BZOJ2752: [HAOI2012]高速公路(road)">
+<meta property="og:url" content="https://littleredstar.github.io/2017/04/07/BZOJ2752-HAOI2012-高速公路-road/index.html">
+<meta property="og:site_name" content="Black_Moon's blog">
+<meta property="og:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2752 
+Solution 期望费用=总费用/总方案数。刚开始发现最后一个收费站是没用的，所以后面操作前r-1。很明显总方案数是(r-l+2)×(r-l+1)/2。分析单个收费站，发现他对总费用的贡献=经过该点的路径条数即：v[i]×(i-l+1)×(r-i+1)然后就用线段树维护但是直接写你">
+<meta property="og:updated_time" content="2017-04-07T07:53:44.895Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BZOJ2752: [HAOI2012]高速公路(road)">
+<meta name="twitter:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2752 
+Solution 期望费用=总费用/总方案数。刚开始发现最后一个收费站是没用的，所以后面操作前r-1。很明显总方案数是(r-l+2)×(r-l+1)/2。分析单个收费站，发现他对总费用的贡献=经过该点的路径条数即：v[i]×(i-l+1)×(r-i+1)然后就用线段树维护但是直接写你">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Black_Moon&#39;s blog">Black_Moon&#39;s blog</a></h1>
+				<h2 class="blog-motto">ljz</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:littleredstar.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/07/BZOJ2752-HAOI2012-高速公路-road/" title="BZOJ2752: [HAOI2012]高速公路(road)" itemprop="url">BZOJ2752: [HAOI2012]高速公路(road)</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Black_Moon" target="_blank" itemprop="author">Black_Moon</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-07T06:26:50.000Z" itemprop="datePublished"> 发表于 2017-04-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<p>传送门：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2752" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=2752</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>期望费用=总费用/总方案数。<br>刚开始发现最后一个收费站是没用的，所以后面操作前r-1。<br>很明显总方案数是(r-l+2)×(r-l+1)/2。<br>分析单个收费站，发现他对总费用的贡献=经过该点的路径条数<br>即：v[i]×(i-l+1)×(r-i+1)<br>然后就用线段树维护<br>但是直接写你会疯掉的<br>把原式转化成：<br>Σ(i=l,r)-i^2×a[i]+i×a[i]×(l+r)-(r+1)×(l-1)×a[i]=-Σ(i=l,r)i^2×a[i]+(l+r)Σ(i=1,r)i×a[i]-(r+1)×(l-1)Σ(i=l,r)a[i]<br>现在你只要维护a[i],a[i]×i,以及a[i]×i^2就可以了。 </p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code "></a>Code </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 600005</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">char</span> ch=getchar(); ll x=<span class="number">0</span>,f=<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;<span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">while</span> (ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>; ch=getchar();&#125;</div><div class="line">    <span class="keyword">return</span> x*f;</div><div class="line">&#125;</div><div class="line"><span class="keyword">struct</span> data&#123;</div><div class="line">    ll t1,t2,t3;</div><div class="line">&#125;val[N];</div><div class="line">ll left[N],right[N],lazy[N],t1[N],t2[N];</div><div class="line">ll n,m,x,y,z; <span class="keyword">char</span> ch[<span class="number">10</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(ll l,ll r,ll p)</span></span>&#123;</div><div class="line">    left[p]=l; right[p]=r;</div><div class="line">    <span class="keyword">if</span> (l==r) <span class="keyword">return</span>;</div><div class="line">    ll mid=l+r&gt;&gt;<span class="number">1</span>;</div><div class="line">    build(l,mid,p&lt;&lt;<span class="number">1</span>); build(mid+<span class="number">1</span>,r,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">updata</span><span class="params">(ll p)</span></span>&#123;</div><div class="line">    ll l=p&lt;&lt;<span class="number">1</span>,r=l|<span class="number">1</span>; val[p].t1=val[l].t1+val[r].t1;  </div><div class="line">    val[p].t2=val[l].t2+val[r].t2; val[p].t3=val[l].t3+val[r].t3;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(ll p,ll v)</span></span>&#123;</div><div class="line">    ll l=left[p],r=right[p]; lazy[p]+=v;</div><div class="line">    val[p].t2+=v*(t2[r]-t2[l<span class="number">-1</span>]);</div><div class="line">    val[p].t1+=v*(t1[r]-t1[l<span class="number">-1</span>]); val[p].t3+=v*(r-l+<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(ll p)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (lazy[p])&#123;</div><div class="line">        add(p&lt;&lt;<span class="number">1</span>,lazy[p]); add(p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>,lazy[p]);</div><div class="line">        lazy[p]=<span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(ll l,ll r,ll v,ll p)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (left[p]==l&amp;&amp;right[p]==r)&#123;</div><div class="line">        add(p,v);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    ll mid=left[p]+right[p]&gt;&gt;<span class="number">1</span>;</div><div class="line">    pushdown(p);</div><div class="line">    <span class="keyword">if</span> (y&lt;=mid) insert(l,r,v,p&lt;&lt;<span class="number">1</span>);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (x&gt;mid) insert(l,r,v,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">    <span class="keyword">else</span> insert(l,mid,v,p&lt;&lt;<span class="number">1</span>),insert(mid+<span class="number">1</span>,r,v,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">    updata(p);</div><div class="line">&#125;</div><div class="line"><span class="function">data <span class="title">query</span><span class="params">(ll l,ll r,ll p)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (left[p]==l&amp;&amp;right[p]==r) <span class="keyword">return</span> val[p];</div><div class="line">    ll mid=left[p]+right[p]&gt;&gt;<span class="number">1</span>;</div><div class="line">    pushdown(p);</div><div class="line">    <span class="keyword">if</span> (r&lt;=mid) <span class="keyword">return</span> query(l,r,p&lt;&lt;<span class="number">1</span>);</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (l&gt;mid) <span class="keyword">return</span> query(l,r,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        data t1=query(l,mid,p&lt;&lt;<span class="number">1</span>),t2=query(mid+<span class="number">1</span>,r,p&lt;&lt;<span class="number">1</span>|<span class="number">1</span>);</div><div class="line">        t1.t1+=t2.t1; t1.t2+=t2.t2; t1.t3+=t2.t3;</div><div class="line">        <span class="keyword">return</span> t1;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll x,ll y)</span></span>&#123;<span class="keyword">return</span> !y?x:gcd(y,x%y);&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    n=read(); m=read();</div><div class="line">    build(<span class="number">1</span>,n,<span class="number">1</span>);</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        t1[i]=t1[i<span class="number">-1</span>]+i*i;</div><div class="line">        t2[i]=t2[i<span class="number">-1</span>]+i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (m--)&#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,ch);</div><div class="line">        <span class="keyword">if</span> (ch[<span class="number">0</span>]==<span class="string">'Q'</span>)&#123;</div><div class="line">            x=read(); y=read()<span class="number">-1</span>;</div><div class="line">            data ans=query(x,y,<span class="number">1</span>);</div><div class="line">            ll fz=-ans.t1+ans.t2*(x+y)-ans.t3*(y+<span class="number">1</span>)*(x<span class="number">-1</span>),fm=t2[y-x+<span class="number">1</span>];</div><div class="line">            ll t=gcd(fz,fm); <span class="built_in">printf</span>(<span class="string">"%lld/%lld\n"</span>,fz/t,fm/t);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            x=read(); y=read()<span class="number">-1</span>; z=read();</div><div class="line">            insert(x,y,z,<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/bzoj/">bzoj</a><a href="/tags/数学/">数学</a><a href="/tags/线段树/">线段树</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://littleredstar.github.io/2017/04/07/BZOJ2752-HAOI2012-高速公路-road/" data-title="BZOJ2752: [HAOI2012]高速公路(road) | Black_Moon&#39;s blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/06/BZOJ3674-3673-可持久化并查集加强版/"  title="BZOJ3674/3673: 可持久化并查集加强版">
+ <strong>下一篇：</strong><br/> 
+ <span>BZOJ3674/3673: 可持久化并查集加强版
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/07/BZOJ2752-HAOI2012-高速公路-road/" data-title="BZOJ2752: [HAOI2012]高速公路(road)" data-url="https://littleredstar.github.io/2017/04/07/BZOJ2752-HAOI2012-高速公路-road/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.</span> <span class="toc-text">Solution </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">2.</span> <span class="toc-text">Code </span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>22</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/51nod/" title="51nod">51nod<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/搜索/" title="搜索">搜索<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Trie树/" title="Trie树">Trie树<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/博弈论/" title="博弈论">博弈论<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数学/" title="数学">数学<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/树套树/" title="树套树">树套树<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/主席树/" title="主席树">主席树<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/二叉堆/" title="二叉堆">二叉堆<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/线段树/" title="线段树">线段树<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单调栈/" title="单调栈">单调栈<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/矩阵乘法/" title="矩阵乘法">矩阵乘法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/树状数组/" title="树状数组">树状数组<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/计算几何/" title="计算几何">计算几何<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排列组合/" title="排列组合">排列组合<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Hash/" title="Hash">Hash<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/codevs/" title="codevs">codevs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/队列/" title="队列">队列<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://swwind.github.io" target="_blank" title="一个Gay">罗江楠</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://shenzhebei.github.io" target="_blank" title="大佬">沈哲贝</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://liangziqi.github.io" target="_blank" title="神犇">梁孜祺</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.csdn.net/mdnd1234" target="_blank" title="zyy的小cp">萌呆浓达</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Black_Moon in Shaoxing. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Black_Moon">Black_Moon</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"zjszljz"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
