@@ -71,6 +71,180 @@
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2017/04/21/BZOJ1207-HNOI2004-打鼹鼠/" title="BZOJ1207: [HNOI2004]打鼹鼠" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ1207: [HNOI2004]打鼹鼠</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1207 
+Solution 第一眼看就是导弹拦截穿衣服。但是m=10000，然后用了奇怪的优化，参考自黄网。
+Code 123456789101112131415161718</p>
+        
+    
+    <time datetime="2017-04-21T07:50:23.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/21/BZOJ3192-JLOI2013-删除物品/" title="BZOJ3192: [JLOI2013]删除物品" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ3192: [JLOI2013]删除物品</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3192 
+Solution 注意只有两堆而且每次只会移动顶端，所以想到可以把两个顶端拼在一起，分割点就在这个数列里移来移去。预处理排序一下，然后从大到小选，统计一下区间里未删</p>
+        
+    
+    <time datetime="2017-04-21T07:43:10.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/21/BZOJ1191-HNOI2006-超级英雄Hero/" title="BZOJ1191: [HNOI2006]超级英雄Hero" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ1191: [HNOI2006]超级英雄Hero</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1191 
+Solution 二分图模板。把“锦囊妙计”和相应的问题连边，做一遍最大匹配就行了。
+Code ```
+#include
+#include
+#include
+#de</p>
+        
+    
+    <time datetime="2017-04-21T07:38:46.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/21/BZOj1059-ZJOI2007-矩阵游戏/" title="BZOj1059: [ZJOI2007]矩阵游戏" itemprop="url">
+  
+    <h1 itemprop="name">BZOj1059: [ZJOI2007]矩阵游戏</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1059 
+Solution 显然原来同行/同列的两个位置，无论如何变化始终是同行/同列。所以只要统计出不同行也不同列的黑格个数相当于每行要匹配各自不同的列，将它转化成二分图，</p>
+        
+    
+    <time datetime="2017-04-21T07:29:31.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/21/BZOJ1143-CTSC2008-祭祀river/" title="BZOJ1143: [CTSC2008]祭祀river" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ1143: [CTSC2008]祭祀river</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=1143 
+Solution 题意可以转化为有向无环图求最小可相交路径覆盖。用二分图做最小可享交路径覆盖=Floyd求出连通性后的最小不相交路径覆盖。而最小不相交路径覆盖=原图</p>
+        
+    
+    <time datetime="2017-04-21T07:12:38.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/21/BZOJ2150-部落战争/" title="BZOJ2150: 部落战争" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ2150: 部落战争</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2150 
+Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不想交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http:</p>
+        
+    
+    <time datetime="2017-04-21T07:02:24.000Z" itemprop="datePublished">2017-04-21</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/12/BZOJ4236-JOIOJI/" title="BZOJ4236: JOIOJI" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ4236: JOIOJI</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=4236 
+Solution 我打了暴力莫名8分。szb大佬的算法：a表示第一种字符出现次数，b,c同上。记录每个前缀b-a与c-a的值。显然两个前缀b-a相等，那么这两个前缀</p>
+        
+    
+    <time datetime="2017-04-12T12:14:40.000Z" itemprop="datePublished">2017-04-12</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
+    <a href="/2017/04/12/BZOJ4240-有趣的家庭菜园/" title="BZOJ4240: 有趣的家庭菜园" itemprop="url">
+  
+    <h1 itemprop="name">BZOJ4240: 有趣的家庭菜园</h1>
+    
+     
+           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=4240 
+Solution 今天模拟赛爆炸呀。这题基本上所有人爆10。天真地以为前缀做一遍逆序对再后缀做一遍，枚举中间点。这其实是没看清题目。每个点只要考虑使左边满足或右边满</p>
+        
+    
+    <time datetime="2017-04-12T11:58:52.000Z" itemprop="datePublished">2017-04-12</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2017/04/11/BZOJ2002-Hnoi2010-Bounce-弹飞绵羊/" title="BZOJ2438: [Hnoi2010]Bounce 弹飞绵羊" itemprop="url">
   
     <h1 itemprop="name">BZOJ2438: [Hnoi2010]Bounce 弹飞绵羊</h1>
@@ -110,179 +284,9 @@ Solution 毛看看肯定是要缩点的，缩点后统计入读为零的点的�
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/11/BZOJ3669-Noi2014-魔法森林/" title="BZOJ3669: [Noi2014]魔法森林" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ3669: [Noi2014]魔法森林</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3669 
-Solution 先按A[i]排序然后一条一条加入生成树中，然后用LCT维护生成树链上最大的B[i]，设当前加入边为{u,v}，若u，v不连通，连接u，v若u，v联</p>
-        
-    
-    <time datetime="2017-04-11T06:44:01.000Z" itemprop="datePublished">2017-04-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/11/BZOJ3744-Gty的妹子序列/" title="BZOJ3744: Gty的妹子序列" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ3744: Gty的妹子序列</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3744 
-Solution 先离散化，再预处理出f[i][j]表示第i个快到第j个块逆序对数量和num[i][j]表示前i个块小于等于j的数的个数。然后配合树状数组分块搞一下</p>
-        
-    
-    <time datetime="2017-04-11T06:33:45.000Z" itemprop="datePublished">2017-04-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/07/BZOJ2752-HAOI2012-高速公路-road/" title="BZOJ2752: [HAOI2012]高速公路(road)" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ2752: [HAOI2012]高速公路(road)</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2752 
-Solution 期望费用=总费用/总方案数。刚开始发现最后一个收费站是没用的，所以后面操作前r-1。很明显总方案数是(r-l+2)×(r-l+1)/2。分析单个收</p>
-        
-    
-    <time datetime="2017-04-07T06:26:50.000Z" itemprop="datePublished">2017-04-07</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/06/BZOJ3674-3673-可持久化并查集加强版/" title="BZOJ3674/3673: 可持久化并查集加强版" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ3674/3673: 可持久化并查集加强版</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3674 
-Solution 双倍经验好评。并查集按秩合并，因为每次只会改一个点，所以把每个点的fa和deep用主席树维护。一遍过啦啦啦~
-Code 1234567891011</p>
-        
-    
-    <time datetime="2017-04-06T03:19:45.000Z" itemprop="datePublished">2017-04-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/06/BZOJ3110-Zjoi2013-K大数查询/" title="BZOJ3110: [Zjoi2013]K大数查询" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ3110: [Zjoi2013]K大数查询</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3110 
-Solution 调了一个晚上。。。我用线段树套线段树做的常数巨大外面一层放权值线段树，里面普通区间线段树。里面的线段树记录外面对应节点权值在区间出现的次数。查询k</p>
-        
-    
-    <time datetime="2017-04-06T00:20:10.000Z" itemprop="datePublished">2017-04-06</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/05/BZOJ3295-Cqoi2011-动态逆序对/" title="BZOJ3295: [Cqoi2011]动态逆序对" itemprop="url">
-  
-    <h1 itemprop="name">BZOJ3295: [Cqoi2011]动态逆序对</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=3295 
-Solution 树状数组套主席树。预处理出每个数之前/后比他大/小的数的个数，记pr[i],su[i]。每次删点i时 ans-=pr[i]+su[i]-已删比它大</p>
-        
-    
-    <time datetime="2017-04-05T05:35:35.000Z" itemprop="datePublished">2017-04-05</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/01/51nod1068-Bash游戏V3/" title="51nod1068 Bash游戏V3" itemprop="url">
-  
-    <h1 itemprop="name">51nod1068 Bash游戏V3</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1068 
-Solution 继续打表找规律。。。发现n为3的倍数时必输。
-Code 1234567891011121314151617181920</p>
-        
-    
-    <time datetime="2017-04-01T02:44:00.000Z" itemprop="datePublished">2017-04-01</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2017/04/01/51nod1067-Bash游戏 V2/" title="51nod1067 Bash游戏 V2" itemprop="url">
-  
-    <h1 itemprop="name">51nod1067 Bash游戏 V2</h1>
-    
-     
-           <p itemprop="description" >传送门：http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1067 
-Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则B赢，否则A赢。证明：设n=7(k+1)+b(b＜7)，k=0的情况</p>
-        
-    
-    <time datetime="2017-04-01T02:09:55.000Z" itemprop="datePublished">2017-04-01</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next<span></span></a>
   </nav>
 
 </div>
@@ -303,11 +307,11 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>26</sup></a></li>
+				<li><a href="/tags/bzoj/" title="bzoj">bzoj<sup>34</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>5</sup></a></li>
 			
 		
 			
@@ -315,7 +319,19 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 			
 		
 			
+				<li><a href="/tags/二分图/" title="二分图">二分图<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/搜索/" title="搜索">搜索<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/树状数组/" title="树状数组">树状数组<sup>3</sup></a></li>
 			
 		
 			
@@ -323,7 +339,7 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 			
 		
 			
-				<li><a href="/tags/数学/" title="数学">数学<sup>2</sup></a></li>
+				<li><a href="/tags/树套树/" title="树套树">树套树<sup>2</sup></a></li>
 			
 		
 			
@@ -331,15 +347,11 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 			
 		
 			
-				<li><a href="/tags/模拟赛/" title="模拟赛">模拟赛<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/博弈论/" title="博弈论">博弈论<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/树套树/" title="树套树">树套树<sup>2</sup></a></li>
+				<li><a href="/tags/数学/" title="数学">数学<sup>2</sup></a></li>
 			
 		
 			
@@ -347,19 +359,7 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 			
 		
 			
-				<li><a href="/tags/Tarjan/" title="Tarjan">Tarjan<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/二叉堆/" title="二叉堆">二叉堆<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/队列/" title="队列">队列<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/codevs/" title="codevs">codevs<sup>1</sup></a></li>
+				<li><a href="/tags/单调栈/" title="单调栈">单调栈<sup>1</sup></a></li>
 			
 		
 			
@@ -367,19 +367,23 @@ Solution 打个表找规律。。。发现n为7的倍数或七的倍数余二则
 			
 		
 			
+				<li><a href="/tags/Hash/" title="Hash">Hash<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/矩阵乘法/" title="矩阵乘法">矩阵乘法<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/树状数组/" title="树状数组">树状数组<sup>1</sup></a></li>
+				<li><a href="/tags/Tarjan/" title="Tarjan">Tarjan<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/计算几何/" title="计算几何">计算几何<sup>1</sup></a></li>
+				<li><a href="/tags/DP/" title="DP">DP<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/排列组合/" title="排列组合">排列组合<sup>1</sup></a></li>
+				<li><a href="/tags/队列/" title="队列">队列<sup>1</sup></a></li>
 			
 		
 		</ul>
