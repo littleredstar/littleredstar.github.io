@@ -12,18 +12,18 @@
 
     
     <meta name="description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2150 
-Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不想交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
+Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不相交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BZOJ2150: 部落战争">
 <meta property="og:url" content="https://littleredstar.github.io/2017/04/21/BZOJ2150-部落战争/index.html">
 <meta property="og:site_name" content="Black_Moon's blog">
 <meta property="og:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2150 
-Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不想交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
-<meta property="og:updated_time" content="2017-04-21T07:08:50.777Z">
+Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不相交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
+<meta property="og:updated_time" content="2017-04-21T23:36:56.771Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BZOJ2150: 部落战争">
 <meta name="twitter:description" content="传送门：http://www.lydsy.com/JudgeOnline/problem.php?id=2150 
-Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不想交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
+Solution 先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不相交路径覆盖，就直接用二分图做最小不相交路径覆盖=原图点数-最大匹配参考：http://endlesscount.blog.163.com/blog/static/82119787201262210381">
 
     
     <link rel="alternative" href="/atom.xml" title="Black_Moon&#39;s blog" type="application/atom+xml">
@@ -93,7 +93,7 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 	<div class="article-content">
 		
 		<p>传送门：<a href="http://www.lydsy.com/JudgeOnline/problem.php?id=2150" target="_blank" rel="external">http://www.lydsy.com/JudgeOnline/problem.php?id=2150</a> </p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不想交路径覆盖，就直接用二分图做<br>最小不相交路径覆盖=原图点数-最大匹配<br>参考：<a href="http://endlesscount.blog.163.com/blog/static/821197872012622103810976/" target="_blank" rel="external">http://endlesscount.blog.163.com/blog/static/821197872012622103810976/</a> </p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution "></a>Solution </h2><p>先把原来的图根据每个点能到达的位置建图，发现是有向无环图最小不相交路径覆盖，就直接用二分图做<br>最小不相交路径覆盖=原图点数-最大匹配<br>参考：<a href="http://endlesscount.blog.163.com/blog/static/821197872012622103810976/" target="_blank" rel="external">http://endlesscount.blog.163.com/blog/static/821197872012622103810976/</a> </p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code "></a>Code </h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ll int</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 3000</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">char</span> ch=getchar(); ll x=<span class="number">0</span>,f=<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>) &#123; <span class="keyword">if</span> (ch==<span class="string">'-'</span>) f=<span class="number">-1</span>; ch=getchar(); &#125;</div><div class="line">    <span class="keyword">while</span> (ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>) &#123; x=x*<span class="number">10</span>+ch-<span class="string">'0'</span>; ch=getchar(); &#125;</div><div class="line">    <span class="keyword">return</span> x*f;</div><div class="line">&#125;</div><div class="line"><span class="keyword">struct</span> edge&#123;</div><div class="line">    ll to,next;</div><div class="line">&#125;e[<span class="number">4</span>*N];</div><div class="line">ll head[N],flag[N],link[N],a[N][N],id[N][N],dx[<span class="number">5</span>],dy[<span class="number">5</span>];</div><div class="line">ll n,m,tot,num,ans,r,c,x,y; <span class="keyword">char</span> s[N];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(ll u,ll v)</span></span>&#123;</div><div class="line">    e[++tot]=(edge)&#123;v,head[u]&#125;; head[u]=tot;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">find</span><span class="params">(ll u)</span></span>&#123;</div><div class="line">    <span class="keyword">for</span> (ll i=head[u],v=e[i].to;i;i=e[i].next,v=e[i].to)</div><div class="line">        <span class="keyword">if</span> (!flag[v])&#123;</div><div class="line">            flag[v]=<span class="number">1</span>;</div><div class="line">            <span class="keyword">if</span> (!link[v]||find(link[v]))&#123;</div><div class="line">                link[v]=u; <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">    n=read(); m=read(); r=read(); c=read();</div><div class="line">    dx[<span class="number">0</span>]=r;dx[<span class="number">1</span>]=r;dx[<span class="number">2</span>]=c;dx[<span class="number">3</span>]=c;  </div><div class="line">        dy[<span class="number">0</span>]=c;dy[<span class="number">1</span>]=-c;dy[<span class="number">2</span>]=r;dy[<span class="number">3</span>]=-r;  </div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)&#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s+<span class="number">1</span>);</div><div class="line">        <span class="keyword">for</span> (ll j=<span class="number">1</span>;j&lt;=m;j++)</div><div class="line">            <span class="keyword">if</span> (s[j]==<span class="string">'.'</span>) id[i][j]=++num,a[i][j]=<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">    <span class="keyword">for</span> (ll j=<span class="number">1</span>;j&lt;=m;j++)</div><div class="line">        <span class="keyword">if</span> (a[i][j])&#123;</div><div class="line">            <span class="keyword">for</span> (ll k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</div><div class="line">                x=i+dx[k],y=j+dy[k];</div><div class="line">                <span class="keyword">if</span> (x&lt;<span class="number">1</span>||x&gt;n||y&lt;<span class="number">1</span>||y&gt;m) <span class="keyword">continue</span>;</div><div class="line">                <span class="keyword">if</span> (a[x][y]) add(id[i][j],id[x][y]);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">for</span> (ll i=<span class="number">1</span>;i&lt;=num;i++)&#123;</div><div class="line">        <span class="built_in">memset</span>(flag,<span class="number">0</span>,<span class="keyword">sizeof</span> flag);</div><div class="line">        <span class="keyword">if</span> (find(i)) ans++;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,num-ans);</div><div class="line">&#125;</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">
@@ -182,7 +182,7 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 			
 		
 			
-				<li><a href="/tags/51nod/" title="51nod">51nod<sup>4</sup></a></li>
+				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
 			
 		
 			
@@ -190,7 +190,7 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 			
 		
 			
-				<li><a href="/tags/KMP/" title="KMP">KMP<sup>4</sup></a></li>
+				<li><a href="/tags/51nod/" title="51nod">51nod<sup>4</sup></a></li>
 			
 		
 			
@@ -198,15 +198,11 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 			
 		
 			
-				<li><a href="/tags/树状数组/" title="树状数组">树状数组<sup>3</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/Trie树/" title="Trie树">Trie树<sup>3</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/树套树/" title="树套树">树套树<sup>2</sup></a></li>
+				<li><a href="/tags/树状数组/" title="树状数组">树状数组<sup>3</sup></a></li>
 			
 		
 			
@@ -218,31 +214,15 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 			
 		
 			
-				<li><a href="/tags/数学/" title="数学">数学<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/主席树/" title="主席树">主席树<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/单调栈/" title="单调栈">单调栈<sup>1</sup></a></li>
+				<li><a href="/tags/树套树/" title="树套树">树套树<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/线段树/" title="线段树">线段树<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Hash/" title="Hash">Hash<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/矩阵乘法/" title="矩阵乘法">矩阵乘法<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/Tarjan/" title="Tarjan">Tarjan<sup>1</sup></a></li>
+				<li><a href="/tags/数学/" title="数学">数学<sup>2</sup></a></li>
 			
 		
 			
@@ -250,7 +230,27 @@ Solution 先把原来的图根据每个点能到达的位置建图，发现是�
 			
 		
 			
+				<li><a href="/tags/Tarjan/" title="Tarjan">Tarjan<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/队列/" title="队列">队列<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/线段树/" title="线段树">线段树<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/矩阵乘法/" title="矩阵乘法">矩阵乘法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单调栈/" title="单调栈">单调栈<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/二叉堆/" title="二叉堆">二叉堆<sup>1</sup></a></li>
 			
 		
 		</ul>
